@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F7F3E8;
+    margin: 1.25rem;
+}
+
+header{
+    background-color:#4CAF50;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.container-carrossel{
+    background: white;
+    padding-top: 2%;
+    border-radius: 10px;
+    gap: 20px;
+    /* width: 80%; */
+    max-width: 400px;
+    /* margin: 2rem auto; */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;    /* Impede que os itens pulem de linha */
+    overflow-x: auto;     /* Ativa o scroll horizontal quando transbordar */ 
+    width: 100%;
+    max-width: 17rem;
+    scroll-behavior: smooth; /* Deixa o deslize mais suave */
+}
+
+
+.card-produto{
+    flex: 0 0 250px;      /* Não deixa o card esticar nem encolher, trava em 250px */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;;
+    /* padding-top: 10px; */
+}
+
+.card-produto img {
+    width: 100%;
+    
+    /* Define uma proporção fixa (ex: 1/1 para quadrado ou 4/3 para retangular) */
+    aspect-ratio: 4 / 3; /* Ajuste conforme a proporção desejada */
+    
+    /* O SEGREDO: faz a imagem preencher o quadrado sem distorcer */
+    object-fit: cover; 
+    
+    /* Garante que a imagem fique centralizada caso seja cortada */
+    object-position: center; 
+    
+    display: block;
+    padding-left: 10px;
+}
+
+.preco{
+    color:#e67e22;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.info{
+    padding: 15px;
+    text-align: center;
+}
+
+.btn-zap{
+    text-decoration: none;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    
+    /* AUMENTAMOS O PADDING: 15px em cima/baixo e 0 nas laterais */
+    padding: 15px 0; 
+    
+    border-radius: 10px; /* Bordas menos redondas para parecer um botão robusto */
+    font-weight: bold;
+    font-size: 1.1rem;    /* Texto um pouco maior */
+    
+    width: 100%;          /* Faz o botão ocupar toda a largura da div .info */
+    max-width: 100%;      /* Removemos o limite de 220px */
+    
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para dar profundidade */
+}
+
+.capa-zap{
+  /* Usamos min-width e max-width para garantir que ele não mude */
+    width: 24px !important;  /* Um pouquinho maior para acompanhar o texto */
+    height: 24px !important;
+    margin-right: 12px;
+    object-fit: contain;
+    border-radius: 50%; /* Deixa o ícone redondo, se for quadrado */
+}
+
+.btn-zap:hover {
+    transform: scale(1.05); /* O botão cresce levemente ao passar o mouse */
+    background-color: #128C7E; /* Fica um verde mais escuro */
+}
+
+
+@media (max-width: 768px) {
+    .container{
+    background: white;
+    border-radius: 10px;
+    gap: 20px;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+}
