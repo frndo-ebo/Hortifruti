@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Gradiente suave usando o Bege do fundo e Branco */
+    background: linear-gradient(135deg, #F7F3E8 0%, #FFFFFF 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Empilha header e main */
+    justify-content: center; 
+    align-items: center;     
+}
+
+header {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    background-color: #32C753; /* Verde Principal do Botão/Banner */
+    font-size: 1.8rem;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 30px 30px 0 0; 
+}
+
+.principal {
+    width: 80%;
+    max-width: 500px;
+    background-color: #FFFFFF; /* Branco do Card de Produto */
+    padding: 30px;
+    border-radius: 0 0 30px 30px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Sombra suavizada para fundos claros */
+    color: #1E5B29; /* Verde Escuro para os textos principais */
+}
+
+form {
+    display: grid;
+    gap: 15px;
+    width: 100%; /* Garante que o form use o espaço interno */
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: -5px;
+    text-align: left;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    color: #000000; /* Texto do input em preto para legibilidade */
+}
+
+input:focus{
+    border-collapse: collapse;
+}
+
+.btn {
+    margin-top: 10px;
+    background-color: #E36D3B; /* Laranja/Coral de destaque do preço */
+    color: #ffffff; /* Texto branco para dar contraste com o laranja */
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover { 
+    background: #32C753; /* Muda para o Verde Principal ao passar o mouse */
+    color: white;
+    transform: translateY(-3px); 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border: 1px solid #32C753; /* Foco com o Verde Principal */
+    box-shadow: 0 0 5px rgba(50, 199, 83, 0.5);
+}
+
+/* 1. Define a largura da barra */
+form::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* 2. O fundo da barra (pista) */
+form::-webkit-scrollbar-track {
+    background: #F7F3E8;      /* Fundo da barra com o Bege do site */
+    border-radius: 10px;
+    margin: 5px;               /* Espaçamento nas pontas */
+}
+
+/* 3. O pino da barra (scroll) */
+form::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+form::-webkit-scrollbar-thumb:hover {
+    background: #32C753; /* Rola com o indicador verde no hover */
+    cursor: pointer;
+}
