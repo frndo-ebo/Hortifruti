@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #f6e3e5 0%, #ffffff 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+header.padrao {
+  background-color: #213f95; /* French Blue para o topo principal */
+  text-align: center;
+  color: white;
+  width: 100%;
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px; /* Joga a caixa de login um pouco mais para baixo */
+}
+
+.titulo-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden; /* Garante que o header respeite as bordas arredondadas da caixa */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header.formulario {
+  text-align: center;
+  padding: 20px;
+  background-color: #f6e3e5; /* Lavender Blush no fundo do header artificial */
+  border-bottom: 1px solid #8c91bd; /* Linha divisória com a cor Intermediária */
+}
+
+/* Ajuste fino para o título h2 dentro do header artificial */
+header.formulario h2 {
+  color: #213f95; /* Título em French Blue */
+}
+
+.principal {
+  width: 80%;
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  color: #213f95; /* French Blue para os textos principais e enunciados */
+}
+
+form {
+  display: grid;
+  gap: 15px;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: -5px;
+  text-align: left;
+  color: #213f95; /* French Blue para destacar as etiquetas */
+}
+
+input,
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #8c91bd; /* Borda padrão usando a cor Intermediária */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+input:focus {
+  border-collapse: collapse;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: #213f95; /* French Blue como cor principal de ação */
+  color: #ffffff;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #8c91bd; /* Transiciona para o tom Intermediário no hover */
+  color: white;
+  transform: translateY(-3px);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #213f95; /* Foco destacado em French Blue */
+  box-shadow: 0 0 5px rgba(33, 63, 149, 0.5);
+}
+
+/* Customização do Scrollbar do Form */
+form::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* O fundo da barra (pista) */
+form::-webkit-scrollbar-track {
+  background: #f6e3e5; /* Fundo da pista com o Lavender Blush */
+  border-radius: 10px;
+  margin: 5px;
+}
+
+/* O pino da barra (scroll) */
+form::-webkit-scrollbar-thumb {
+  background: #8c91bd; /* Pino usando a cor Intermediária */
+  border-radius: 10px;
+}
+
+form::-webkit-scrollbar-thumb:hover {
+  background: #213f95; /* Pino fica em French Blue ao passar o mouse */
+  cursor: pointer;
+}
