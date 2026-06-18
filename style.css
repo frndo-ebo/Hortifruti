@@ -23,6 +23,15 @@ header {
     border-radius: 10px;
 }
 
+header.padrao {
+    background-color: #213F95; /* Suas cores originais mantidas */
+    color: white;
+    width: 100%;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 60px; 
+}
+
 .categoria-hortifruti {
     width: 100%;
     max-width: 1200px;
