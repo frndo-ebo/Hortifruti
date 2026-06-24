@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F7F3E8;
+    margin: 1.25rem;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+header.padrao {
+    background-color: #213F95; /* Suas cores originais mantidas */
+    color: white;
+    width: 100%;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 60px; 
+}
+
+.categoria-hortifruti {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 3rem;
+}
+
+.categoria-hortifruti h2 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+.container-carrossel {
+    background: transparent;
+    gap: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding: 10px 5px;
+    scroll-behavior: smooth;
+}
+
+.card-produto {
+    flex: 0 0 250px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-produto > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.preco {
+    color: #e67e22;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.info {
+    padding: 15px;
+    text-align: center;
+}
+
+.btn-zap {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 15px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 100%;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.capa-zap {
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 12px;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 0 !important;
+}
+
+.btn-zap:hover {
+    transform: scale(1.05);
+    background-color: #128C7E;
+}
+
+@media (max-width: 768px) {
+    .container-carrossel {
+        gap: 15px;
+    }
+}
