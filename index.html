@@ -6,6 +6,7 @@
     <title>Verde e Grão - Empório</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cloudflare.com">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -34,6 +35,11 @@
       <section class="categoria-hortifruti">
         <h2>Frutas</h2>
         <div class="container-carrossel">
+
+           <button class="seta btn-ant">&#10094;</button>
+          <div class="carrossel-pista-container">
+          <div class="carrossel-pista">
+
           <div class="card-produto">
             <img
               src="imagens_frutas/limao.jpg"
@@ -264,33 +270,38 @@
             </div>
           </div>
 
-          <div class="card-produto">
-            <img src="imagens_frutas/coco.jpg" alt="Coco" />
-            <div class="info">
-              <h3>Coco</h3>
-              <p class="preco">R$6,00uni</p>
-              <a href="#" class="btn-zap">
-                <img
-                  src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/94/ab/c094ab41-a44a-4da8-737f-7aad8d97b8b6/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-0-85-220.png/256x256bb.png"
-                  alt="WhatsApp"
-                  class="capa-zap"
-                />
-                <span>Pedir no WhatsApp</span>
-              </a>
+            <div class="card-produto">
+              <img src="imagens_frutas/coco.jpg" alt="Coco" />
+              <div class="info">
+                <h3>Coco</h3>
+                <p class="preco">R$6,00uni</p>
+                <a href="#" class="btn-zap">
+                  <img
+                    src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/94/ab/c094ab41-a44a-4da8-737f-7aad8d97b8b6/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-0-85-220.png/256x256bb.png"
+                    alt="WhatsApp"
+                    class="capa-zap"
+                  />
+                  <span>Pedir no WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- SEÇÃO: LEGUMES -->
-      <section class="categoria-hortifruti">
-        <h2>Legumes</h2>
-        <div class="container-carrossel">
-          <div class="card-produto">
-            <img
-              src="https://cdn.pixabay.com/photo/2019/07/11/10/14/cherry-tomato-4330441_1280.jpg"
-              alt="Tomate cereja"
-            />
+          </div>
+          <button class="seta btn-prox">❯</button>
+        </section>
+      </div>
+        <!-- SEÇÃO: LEGUMES -->
+        <section class="categoria-hortifruti">
+          <h2>Legumes</h2>
+          <div class="container-carrossel">
+                <button class="seta btn-ant">&#10094;</button>      
+          <div class="carrossel-pista-container">
+            <div class="carrossel-pista">
+            <div class="card-produto">
+              <img
+                src="https://cdn.pixabay.com/photo/2019/07/11/10/14/cherry-tomato-4330441_1280.jpg"
+                alt="Tomate cereja"
+              />
             <div class="info">
               <h3>Tomate cereja</h3>
               <p class="preco">R$8,90caixa</p>
@@ -573,17 +584,24 @@
                   class="capa-zap"
                 />
                 <span>Pedir no WhatsApp</span>
-              </a>
+               </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+          <button class="seta btn-prox">❯</button>
+        </section>
+      </div>
 
       <!-- SEÇÃO: VERDURAS E TEMPEROS -->
       <section class="categoria-hortifruti">
         <h2>Verduras e Temperos</h2>
         <div class="container-carrossel">
-          <div class="card-produto">
+          <button class="seta btn-ant">&#10094;</button>      
+        <div class="carrossel-pista-container">
+          <div class="carrossel-pista">
+
+          <div class="card-produto">            
             <img src="imagens_temperos/cebolinha.jpg" alt="Cebolinha" />
             <div class="info">
               <h3>Cebolinha</h3>
@@ -822,10 +840,14 @@
                   class="capa-zap"
                 />
                 <span>Pedir no WhatsApp</span>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+          </div>
+          <button class="seta btn-prox">❯</button>
+        </section>
+      </div>
+       <script src="scriptind.js"></script>
     </main>
   </body>

@@ -24,7 +24,7 @@ header {
 }
 
 header.padrao {
-    background-color: #213F95; /* Suas cores originais mantidas */
+    background-color: #213F95;
     color: white;
     width: 100%;
     padding: 1.5rem 0;
@@ -47,19 +47,28 @@ header.padrao {
 }
 
 .container-carrossel {
-    background: transparent;
-    gap: 20px;
-    overflow: hidden;
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.carrossel-pista-container {
+    overflow: hidden; 
     width: 100%;
     padding: 10px 5px;
-    scroll-behavior: smooth;
+}
+
+.carrossel-pista {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease-in-out;
+    width: max-content;
 }
 
 .card-produto {
     flex: 0 0 250px;
+    flex-shrink: 0;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -67,6 +76,37 @@ header.padrao {
     display: flex;
     flex-direction: column;
 }
+
+.seta {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.seta:hover {
+    background: #2e7d32;
+}
+
+.seta:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.btn-ant { left: -20px; }
+.btn-prox { right: -20px; }
 
 .card-produto > img {
     width: 100%;
@@ -120,7 +160,14 @@ header.padrao {
 }
 
 @media (max-width: 768px) {
-    .container-carrossel {
+    .carrossel-pista {
         gap: 15px;
     }
+    .seta {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    .btn-ant { left: -10px; }
+    .btn-prox { right: -10px; }
 }
