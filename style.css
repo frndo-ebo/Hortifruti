@@ -1,3 +1,5 @@
+@import url('https://googleapis.com');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,13 +10,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #F7F3E8;
+    font-family: 'Nunito', sans-serif;
+    background-color: #F6E3E5;
     margin: 1.25rem;
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #213F95;
     color: white;
     text-align: center;
     padding: 2rem 1rem;
@@ -28,21 +30,25 @@ header.padrao {
     color: white;
     width: 100%;
     padding: 1.5rem 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1);
     margin-bottom: 60px; 
 }
 
 .categoria-hortifruti {
     width: 100%;
     max-width: 1200px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     margin-bottom: 3rem;
 }
 
 .categoria-hortifruti h2 {
-    color: #2e7d32;
+    color: #213F95;
     margin-bottom: 1rem;
     font-size: 1.8rem;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid #213F95;
     padding-bottom: 5px;
 }
 
@@ -71,14 +77,14 @@ header.padrao {
     flex-shrink: 0;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 .seta {
-    background: #4CAF50;
+    background: #213F95;
     color: white;
     border: none;
     font-size: 1.2rem;
@@ -98,7 +104,7 @@ header.padrao {
 }
 
 .seta:hover {
-    background: #2e7d32;
+    background: #162a66;
 }
 
 .seta:active {
@@ -117,7 +123,7 @@ header.padrao {
 }
 
 .preco {
-    color: #e67e22;
+    color: #213F95;
     font-weight: bold;
     font-size: 1.2rem;
     margin: 10px 0;
