@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS GERAIS DA VITRINE / HOME
+   GERAL
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght=400;600;700;900&display=swap');
@@ -20,7 +20,7 @@ body {
 }
 
 /* =========================================
-   CABEÇALHO
+   HEADER
    ========================================= */
 
 header.padrao {
@@ -46,8 +46,8 @@ header.padrao h1 { font-size: 1.5rem; font-weight: 900; }
 header.padrao h1 span { font-weight: 400; font-size: 1.2rem; opacity: 0.8; }
 header.padrao p { color: #F6E3E5; font-size: 0.85rem; margin-top: 2px; }
 
-header.padrao .nav-links {
-    display: flex;
+header.padrao .nav-links { 
+    display: flex; 
     gap: 25px; 
 }
 
@@ -70,7 +70,7 @@ header.padrao .nav-item:hover {
 }
 
 /* =========================================
-   CARROSSEL E PRODUTOS (Exclusivo da Vitrine)
+   VITRINE / CATEGORIAS
    ========================================= */
 
 .categoria-hortifruti {
@@ -91,29 +91,51 @@ header.padrao .nav-item:hover {
     padding-bottom: 5px;
 }
 
+/* =========================================
+   CARROSSEL COM SCROLL CUSTOMIZADO
+   ========================================= */
+
 .container-carrossel {
-    display: flex;
-    align-items: center;
-    position: relative; 
     width: 100%;
 }
 
 .carrossel-pista-container {
-    overflow: hidden;
+    overflow-x: auto; /* Habilita rolagem horizontal */
+    overflow-y: hidden;
     width: 100%;
-    padding: 10px 5px;
+    padding: 10px 5px 20px 5px; /* Padding bottom maior pra dar espaço pra scrollbar */
+    
+    /* Efeito magnético de scroll (trava no elemento) */
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+}
+
+/* Estilização da barra de rolagem (Chrome, Safari, Edge) */
+.carrossel-pista-container::-webkit-scrollbar {
+    height: 8px; 
+}
+.carrossel-pista-container::-webkit-scrollbar-track {
+    background: #F6E3E5; 
+    border-radius: 10px;
+}
+.carrossel-pista-container::-webkit-scrollbar-thumb {
+    background: #213F95; 
+    border-radius: 10px;
 }
 
 .carrossel-pista {
     display: flex;
     gap: 20px;
-    transition: transform 0.4s ease-in-out; 
     width: max-content;
 }
 
+/* =========================================
+   CARDS DOS PRODUTOS
+   ========================================= */
+
 .card-produto {
     flex: 0 0 250px; 
-    flex-shrink: 0;
+    scroll-snap-align: start; /* Diz onde o scroll deve "grudar" ao parar */
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1);
@@ -143,34 +165,8 @@ header.padrao .nav-item:hover {
 }
 
 /* =========================================
-   BOTÕES E SETAS DA VITRINE
+   BOTÃO WHATSAPP
    ========================================= */
-
-.seta {
-    background: #213F95;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.1s;
-}
-
-.seta:hover { background: #162a66; }
-.seta:active { transform: translateY(-50%) scale(0.95); }
-
-.btn-ant { left: -20px; }
-.btn-prox { right: -20px; }
 
 .btn-zap {
     text-decoration: none;
@@ -188,9 +184,9 @@ header.padrao .nav-item:hover {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.btn-zap:hover {
-    transform: scale(1.05);
-    background-color: #128C7E;
+.btn-zap:hover { 
+    transform: scale(1.05); 
+    background-color: #128C7E; 
 }
 
 .capa-zap {
@@ -201,61 +197,62 @@ header.padrao .nav-item:hover {
 }
 
 /* =========================================
-   RESPONSIVIDADE (CELULARES)
+   MOBILE
    ========================================= */
-@media (max-width: 768px) {
-    /* Diminui a margem geral para aproveitar a tela do celular */
-    body {
-        margin: 0.5rem; 
-    }
 
-    /* Reduz o padding do cabeçalho */
+@media (max-width: 768px) {
+    /* Reseta margens pra colar na tela */
+    body { margin: 0; }
+
     header.padrao {
         padding: 1rem;
-        margin-bottom: 30px; /* Dá menos espaço embaixo do header */
+        margin-bottom: 20px; 
+        border-radius: 0; 
     }
 
-    /* Empilha a logo e os botões de navegação em vez de deixar lado a lado */
-    header.padrao .header-container {
-        flex-direction: column;
+    header.padrao .header-container { 
+        flex-direction: column; 
         gap: 15px; 
-        text-align: center;
+        text-align: center; 
     }
-
-    /* Se tiver muitos links, permite que eles quebrem a linha */
-    header.padrao .nav-links {
+    
+    header.padrao .nav-links { 
         flex-wrap: wrap; 
-        justify-content: center;
-        gap: 10px;
+        justify-content: center; 
+        gap: 10px; 
     }
+    
+    header.padrao .nav-item { 
+        padding: 4px 8px; 
+        font-size: 0.9rem; 
+    } 
 
-    /* Ajustes da categoria para não ficar muito grudada no celular */
     .categoria-hortifruti {
-        padding: 15px; 
+        padding: 15px 10px; 
+        border-radius: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .categoria-hortifruti h2 { 
+        font-size: 1.4rem; 
+        text-align: center; 
     }
 
-    .categoria-hortifruti h2 {
-        font-size: 1.5rem; 
-        text-align: center; /* Centraliza o título da categoria */
+    /* Ajuste fino da barra de rolagem no celular (deixa mais fina) */
+    .carrossel-pista-container::-webkit-scrollbar {
+        height: 5px; 
     }
 
-    /* Diminui o tamanho do card para caber melhor na tela do celular e mostrar que tem mais pro lado */
+    /* Redução dos cards para caber ~2 por tela e induzir o scroll */
     .card-produto {
-        flex: 0 0 200px; 
+        flex: 0 0 150px; 
     }
     
-    .carrossel-pista { 
-        gap: 15px; 
-    }
+    .carrossel-pista { gap: 10px; } 
 
-    /* Ajuste das setas para não saírem da tela e causarem scroll horizontal */
-    .seta { 
-        width: 32px; 
-        height: 32px; 
-        font-size: 1rem; 
-    }
+    .info { padding: 10px; }
+    .preco { font-size: 1rem; margin: 8px 0; }
     
-    /* Coloca as setas um pouquinho pra dentro do container */
-    .btn-ant { left: 0px; }
-    .btn-prox { right: 0px; }
+    .btn-zap { padding: 10px 0; font-size: 0.9rem; }
+    .capa-zap { width: 18px !important; height: 18px !important; margin-right: 8px; }
 }
