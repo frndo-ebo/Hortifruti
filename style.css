@@ -1,100 +1,170 @@
-/* Importação corrigida da fonte Nunito direto do repositório do Google Fonts */
+/* =========================================
+   ESTILOS GERAIS DA VITRINE / HOME
+   ========================================= */
+
+/* Importação da fonte Nunito direto do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght=400;600;700;900&display=swap');
 
-/* Reset global básico para tirar as margens fantasmas e paddings nativos de cada navegador */
+/* Reset global para evitar margens indesejadas */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que bordas e paddings não quebrem o cálculo de tamanho dos elementos */
+    box-sizing: border-box; /* Garante que bordas/paddings não quebrem tamanhos */
 }
 
-/* Corpo do site: joga tudo em coluna centralizada e aplica o fundo rosa/lavanda da marca */
+/* Corpo da página principal com fundo rosa claro */
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Nunito', sans-serif;
-    background-color: #F6E3E5;
-    margin: 1.25rem; /* Margem de respiro nas bordas externas da página inteira */
+    background-color: #F6E3E5; /* Cor base da marca */
+    margin: 1.25rem; /* Respiro externo da página */
 }
 
-/* Cabeçalho genérico (caso use em alguma seção isolada) */
-header {
-    background-color: #213F95;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    width: 100%;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-}
+/* =========================================
+   CABEÇALHO
+   ========================================= */
 
-/* Header padrão fixo da identidade visual do e-commerce */
+/* Fundo azul da marca e estilo base do cabeçalho */
 header.padrao {
-    background-color: #213F95; /* Azul clássico da Verde e Grão */
+    background-color: #213F95; 
     color: white;
     width: 100%;
-    padding: 1.5rem 0;
-    box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1); /* Sombra leve para descolar do fundo */
-    margin-bottom: 60px; 
+    padding: 1.2rem 2rem;
+    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12); /* Sombra para descolar do fundo */
+    margin-bottom: 60px;
+    border-radius: 10px; /* Bordas arredondadas (pode remover se quiser que cole nas pontas) */
 }
 
-/* Bloco que envelopa uma categoria inteira de produtos (Ex: Hortifruti, Mercearia) */
+/* Container interno para separar logo dos botões */
+header.padrao .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Estilo do título e slogan no header */
+header.padrao h1 { font-size: 1.5rem; font-weight: 900; }
+header.padrao h1 span { font-weight: 400; font-size: 1.2rem; opacity: 0.8; }
+header.padrao p { color: #F6E3E5; font-size: 0.85rem; margin-top: 2px; }
+
+/* Grupo de botões do menu com mesmo estilo do CSS 2 */
+header.padrao .nav-links {
+    display: flex;
+    gap: 25px; /* Espaço entre os links */
+}
+
+/* Botões de navegação modernizados e transparentes */
+header.padrao .nav-item {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Efeito ao passar o mouse no botão do menu */
+header.padrao .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #F6E3E5;
+}
+
+/* =========================================
+   CARROSSEL E PRODUTOS (Exclusivo da Vitrine)
+   ========================================= */
+
+/* Container de uma categoria (ex: Hortifruti) */
 .categoria-hortifruti {
     width: 100%;
-    max-width: 1200px; /* Impede que a vitrine vire uma tripa gigante em telas muito largas */
+    max-width: 1200px;
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra bem sutil cinza */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     margin-bottom: 3rem;
 }
 
-/* Título de destaque da categoria com uma linha elegante abaixo do texto */
+/* Título da categoria com linha azul divisória */
 .categoria-hortifruti h2 {
     color: #213F95;
     margin-bottom: 1rem;
     font-size: 1.8rem;
-    border-bottom: 2px solid #213F95; /* Linha divisória azul */
+    border-bottom: 2px solid #213F95;
     padding-bottom: 5px;
 }
 
-/* Container que segura a pista e as setas flutuantes */
+/* Container do carrossel que segura os produtos e as setas */
 .container-carrossel {
     display: flex;
     align-items: center;
-    position: relative; /* Crucial para podermos posicionar as setas com 'absolute' em relação a ele */
+    position: relative; /* Base para o position absolute das setas */
     width: 100%;
 }
 
-/* A "janela" do carrossel. Esconde tudo o que passar do limite da largura visível */
+/* Esconde o que vazar do carrossel para criar o efeito de janela */
 .carrossel-pista-container {
-    overflow: hidden; /* O que vazar para os lados fica invisível, criando a mágica do carrossel */
+    overflow: hidden;
     width: 100%;
-    padding: 10px 5px; /* Espaço para as sombras dos cards não ficarem cortadas nas bordinhas */
+    padding: 10px 5px;
 }
 
-/* A esteira de fato, que segura todos os produtos lado a lado e se move horizontalmente */
+/* A esteira rolante onde os produtos ficam alinhados */
 .carrossel-pista {
     display: flex;
-    gap: 20px; /* Espaçamento entre um card e outro */
-    transition: transform 0.4s ease-in-out; /* Efeito de transição suave deslizando a pista */
-    width: max-content; /* Força a pista a ser tão larga quanto a soma de todos os cards juntos */
+    gap: 20px;
+    transition: transform 0.4s ease-in-out; /* Movimento suave */
+    width: max-content;
 }
 
-/* Caixa individual do produto */
+/* Cartão individual de cada produto */
 .card-produto {
-    flex: 0 0 250px; /* Não deixa o card esticar e nem esmagar, crava o tamanho em 250px fixos */
+    flex: 0 0 250px; /* Trava a largura em 250px */
     flex-shrink: 0;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1); /* Sombra azulada bem discreta */
-    overflow: hidden; /* Garante que fotos com cantos retos não passem do rounded do card */
+    box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
-/* Estilização universal das setas de navegação (Anterior e Próximo) */
+/* Estilo das imagens para não distorcerem */
+.card-produto > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover; /* Corta e ajusta sem amassar a foto */
+    object-position: center;
+    display: block;
+}
+
+/* Informações de texto embaixo da foto */
+.info {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Destaque do preço */
+.preco {
+    color: #213F95;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+/* =========================================
+   BOTÕES E SETAS DA VITRINE
+   ========================================= */
+
+/* Setas flutuantes do carrossel */
 .seta {
     background: #213F95;
     color: white;
@@ -103,11 +173,11 @@ header.padrao {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    border-radius: 50%; /* Transforma o botão num círculo perfeito */
-    position: absolute; /* Deixa o botão flutuando por cima do layout */
-    top: 50%; /* Joga o botão para o meio da altura do container */
-    transform: translateY(-50%); /* Ajuste fino perfeito para centralizar no eixo vertical */
-    z-index: 10; /* Garante que a seta vai ficar em cima das fotos dos produtos */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
@@ -115,92 +185,47 @@ header.padrao {
     transition: background 0.2s, transform 0.1s;
 }
 
-/* Escurece o azul quando o usuário passa o mouse na seta */
-.seta:hover {
-    background: #162a66;
-}
+.seta:hover { background: #162a66; }
+.seta:active { transform: translateY(-50%) scale(0.95); }
 
-/* Efeito físico de clique: dá uma leve encolhida no botão ao clicar */
-.seta:active {
-    transform: translateY(-50%) scale(0.95);
-}
-
-/* Posicionamento preciso das setas vazando metade para fora do container principal */
+/* Posição específica das setas esquerda/direita */
 .btn-ant { left: -20px; }
 .btn-prox { right: -20px; }
 
-/* Trata as imagens dos produtos para não distorcerem independentemente do tamanho original */
-.card-produto > img {
-    width: 100%;
-    aspect-ratio: 4 / 3; /* Força a imagem a ter sempre proporção estilo TV antiga (paisagem) */
-    object-fit: cover; /* Corta e encaixa a foto no espaço sem achatar */
-    object-position: center; /* Centraliza o foco do corte da imagem */
-    display: block;
-}
-
-/* Preço do produto em destaque */
-.preco {
-    color: #213F95;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-/* Espaçamento interno da área de textos e informações abaixo da foto do produto */
-.info {
-    padding: 15px;
-    text-align: center;
-}
-
-/* Botão de compra direta via WhatsApp */
+/* Botão de WhatsApp do produto */
 .btn-zap {
     text-decoration: none;
-    display: inline-flex; /* Flex em linha para o texto e o ícone ficarem perfeitamente emparelhados */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #25D366; /* Verde oficial do WhatsApp */
+    background-color: #25D366; /* Verde oficial WhatsApp */
     color: white;
     padding: 15px 0;
     border-radius: 10px;
     font-weight: bold;
     font-size: 1.1rem;
     width: 100%;
-    max-width: 100%;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Customização do ícone interno do WhatsApp */
+.btn-zap:hover {
+    transform: scale(1.05);
+    background-color: #128C7E;
+}
+
+/* Ícone do WhatsApp */
 .capa-zap {
     width: 24px !important;
     height: 24px !important;
-    margin-right: 12px; /* Afasta o ícone do texto do botão */
+    margin-right: 12px;
     object-fit: contain;
-    border-radius: 50%;
-    padding: 0 !important;
 }
 
-/* Efeito de destaque no botão do WhatsApp ao passar o mouse */
-.btn-zap:hover {
-    transform: scale(1.05); /* Dá um leve zoom no botão */
-    background-color: #128C7E; /* Tom de verde mais escuro do WhatsApp */
-}
-
-/* Responsive Web Design: Ajustes finos para celulares e tablets */
+/* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
-    /* Diminui o espaço entre produtos em telas menores para caber mais coisas */
-    .carrossel-pista {
-        gap: 15px;
-    }
-    
-    /* Encolhe o tamanho físico das setas para não cobrirem muito o produto no celular */
-    .seta {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-    
-    /* Recua o posicionamento das setas para não sumirem para fora da tela do smartphone */
+    .carrossel-pista { gap: 15px; }
+    .seta { width: 32px; height: 32px; font-size: 1rem; }
     .btn-ant { left: -10px; }
     .btn-prox { right: -10px; }
 }
