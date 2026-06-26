@@ -2,42 +2,37 @@
    ESTILOS GERAIS DA VITRINE / HOME
    ========================================= */
 
-/* Importação da fonte Nunito direto do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght=400;600;700;900&display=swap');
 
-/* Reset global para evitar margens indesejadas */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que bordas/paddings não quebrem tamanhos */
+    box-sizing: border-box; 
 }
 
-/* Corpo da página principal com fundo rosa claro */
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Nunito', sans-serif;
-    background-color: #F6E3E5; /* Cor base da marca */
-    margin: 1.25rem; /* Respiro externo da página */
+    background-color: #F6E3E5; 
+    margin: 1.25rem; 
 }
 
 /* =========================================
    CABEÇALHO
    ========================================= */
 
-/* Fundo azul da marca e estilo base do cabeçalho */
 header.padrao {
     background-color: #213F95; 
     color: white;
     width: 100%;
     padding: 1.2rem 2rem;
-    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12); /* Sombra para descolar do fundo */
+    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12); 
     margin-bottom: 60px;
-    border-radius: 10px; /* Bordas arredondadas (pode remover se quiser que cole nas pontas) */
+    border-radius: 10px; 
 }
 
-/* Container interno para separar logo dos botões */
 header.padrao .header-container {
     display: flex;
     justify-content: space-between;
@@ -47,18 +42,15 @@ header.padrao .header-container {
     width: 100%;
 }
 
-/* Estilo do título e slogan no header */
 header.padrao h1 { font-size: 1.5rem; font-weight: 900; }
 header.padrao h1 span { font-weight: 400; font-size: 1.2rem; opacity: 0.8; }
 header.padrao p { color: #F6E3E5; font-size: 0.85rem; margin-top: 2px; }
 
-/* Grupo de botões do menu com mesmo estilo do CSS 2 */
 header.padrao .nav-links {
     display: flex;
-    gap: 25px; /* Espaço entre os links */
+    gap: 25px; 
 }
 
-/* Botões de navegação modernizados e transparentes */
 header.padrao .nav-item {
     color: #FFFFFF;
     text-decoration: none;
@@ -72,7 +64,6 @@ header.padrao .nav-item {
     border-radius: 6px;
 }
 
-/* Efeito ao passar o mouse no botão do menu */
 header.padrao .nav-item:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #F6E3E5;
@@ -82,7 +73,6 @@ header.padrao .nav-item:hover {
    CARROSSEL E PRODUTOS (Exclusivo da Vitrine)
    ========================================= */
 
-/* Container de uma categoria (ex: Hortifruti) */
 .categoria-hortifruti {
     width: 100%;
     max-width: 1200px;
@@ -93,7 +83,6 @@ header.padrao .nav-item:hover {
     margin-bottom: 3rem;
 }
 
-/* Título da categoria com linha azul divisória */
 .categoria-hortifruti h2 {
     color: #213F95;
     margin-bottom: 1rem;
@@ -102,32 +91,28 @@ header.padrao .nav-item:hover {
     padding-bottom: 5px;
 }
 
-/* Container do carrossel que segura os produtos e as setas */
 .container-carrossel {
     display: flex;
     align-items: center;
-    position: relative; /* Base para o position absolute das setas */
+    position: relative; 
     width: 100%;
 }
 
-/* Esconde o que vazar do carrossel para criar o efeito de janela */
 .carrossel-pista-container {
     overflow: hidden;
     width: 100%;
     padding: 10px 5px;
 }
 
-/* A esteira rolante onde os produtos ficam alinhados */
 .carrossel-pista {
     display: flex;
     gap: 20px;
-    transition: transform 0.4s ease-in-out; /* Movimento suave */
+    transition: transform 0.4s ease-in-out; 
     width: max-content;
 }
 
-/* Cartão individual de cada produto */
 .card-produto {
-    flex: 0 0 250px; /* Trava a largura em 250px */
+    flex: 0 0 250px; 
     flex-shrink: 0;
     background: white;
     border-radius: 10px;
@@ -137,22 +122,19 @@ header.padrao .nav-item:hover {
     flex-direction: column;
 }
 
-/* Estilo das imagens para não distorcerem */
 .card-produto > img {
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: cover; /* Corta e ajusta sem amassar a foto */
+    object-fit: cover; 
     object-position: center;
     display: block;
 }
 
-/* Informações de texto embaixo da foto */
 .info {
     padding: 15px;
     text-align: center;
 }
 
-/* Destaque do preço */
 .preco {
     color: #213F95;
     font-weight: bold;
@@ -164,7 +146,6 @@ header.padrao .nav-item:hover {
    BOTÕES E SETAS DA VITRINE
    ========================================= */
 
-/* Setas flutuantes do carrossel */
 .seta {
     background: #213F95;
     color: white;
@@ -188,17 +169,15 @@ header.padrao .nav-item:hover {
 .seta:hover { background: #162a66; }
 .seta:active { transform: translateY(-50%) scale(0.95); }
 
-/* Posição específica das setas esquerda/direita */
 .btn-ant { left: -20px; }
 .btn-prox { right: -20px; }
 
-/* Botão de WhatsApp do produto */
 .btn-zap {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #25D366; /* Verde oficial WhatsApp */
+    background-color: #25D366; 
     color: white;
     padding: 15px 0;
     border-radius: 10px;
@@ -214,7 +193,6 @@ header.padrao .nav-item:hover {
     background-color: #128C7E;
 }
 
-/* Ícone do WhatsApp */
 .capa-zap {
     width: 24px !important;
     height: 24px !important;
@@ -222,10 +200,62 @@ header.padrao .nav-item:hover {
     object-fit: contain;
 }
 
-/* Ajustes para dispositivos móveis */
+/* =========================================
+   RESPONSIVIDADE (CELULARES)
+   ========================================= */
 @media (max-width: 768px) {
-    .carrossel-pista { gap: 15px; }
-    .seta { width: 32px; height: 32px; font-size: 1rem; }
-    .btn-ant { left: -10px; }
-    .btn-prox { right: -10px; }
+    /* Diminui a margem geral para aproveitar a tela do celular */
+    body {
+        margin: 0.5rem; 
+    }
+
+    /* Reduz o padding do cabeçalho */
+    header.padrao {
+        padding: 1rem;
+        margin-bottom: 30px; /* Dá menos espaço embaixo do header */
+    }
+
+    /* Empilha a logo e os botões de navegação em vez de deixar lado a lado */
+    header.padrao .header-container {
+        flex-direction: column;
+        gap: 15px; 
+        text-align: center;
+    }
+
+    /* Se tiver muitos links, permite que eles quebrem a linha */
+    header.padrao .nav-links {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Ajustes da categoria para não ficar muito grudada no celular */
+    .categoria-hortifruti {
+        padding: 15px; 
+    }
+
+    .categoria-hortifruti h2 {
+        font-size: 1.5rem; 
+        text-align: center; /* Centraliza o título da categoria */
+    }
+
+    /* Diminui o tamanho do card para caber melhor na tela do celular e mostrar que tem mais pro lado */
+    .card-produto {
+        flex: 0 0 200px; 
+    }
+    
+    .carrossel-pista { 
+        gap: 15px; 
+    }
+
+    /* Ajuste das setas para não saírem da tela e causarem scroll horizontal */
+    .seta { 
+        width: 32px; 
+        height: 32px; 
+        font-size: 1rem; 
+    }
+    
+    /* Coloca as setas um pouquinho pra dentro do container */
+    .btn-ant { left: 0px; }
+    .btn-prox { right: 0px; }
 }
