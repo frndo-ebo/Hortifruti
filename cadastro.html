@@ -1,43 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulário</title>
-    <link rel="stylesheet" href="cadastro.css" />
-  </head>
-
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Verde e Grão</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
     <header class="padrao">
-      <h1>Verde e Grão - Empório</h1>
-      <p>Ofertas frescas do dia &#127813;</p>
+        <div class="header-container">
+            <div class="logo-info">
+                <h1>Verde e Grão <span>Empório</span></h1>
+                <p>Ofertas frescas do dia &#127813;</p>
+            </div>
+            
+            <div class="nav-links">
+                <a href="login.html" class="nav-item">
+                    Login <i class="fa-solid fa-user"></i>
+                </a>
+                <a href="carrinho.html" class="nav-item">
+                    Carrinho <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+        </div>
     </header>
 
     <main class="principal">
-      <div class="titulo-box">
-        <header class="formulario">
-          <h2>LOGIN</h2>
-          <p>Insira seus dados para acessar sua conta</p>
-        </header>
-
+        <h2>Criar Conta</h2>
+        <p class="subtitulo-card">Insira seus dados para se registrar</p>
+        
         <form>
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" required />
+            <div class="input-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Seu nome completo" required>
+            </div>
 
-          <label for="email">E-mail</label>
-          <input type="email" id="email" required />
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
+         
+            <div class="input-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+            </div>
 
-          <label for="telefone">Telefone</label>
-          <input type="tel" id="telefone" required />
-
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" required />
-
-          <button class="btn">Concluir Registro</button>
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Crie uma senha forte" required>
+            </div>
+                        
+            <div class="botoes-container">
+                <button type="submit" class="btn btn-primary">Concluir Registro</button>
+                <a href="login.html" class="link-retorno">Já tem uma conta? Faça login</a>
+            </div>
         </form>
-      </div>
-    </main>
-  </body>
+    </main>    
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
