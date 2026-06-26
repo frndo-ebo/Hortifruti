@@ -1,118 +1,184 @@
+/* Importação da Fonte Nunito */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Nunito', sans-serif;
 }
 
 body {
-    /* Gradiente suave usando o Bege do fundo e Branco */
-    background: linear-gradient(135deg, #F7F3E8 0%, #FFFFFF 100%);
+    background: linear-gradient(135deg, #F6E3E5 0%, #FFFFFF 100%);
     background-attachment: fixed;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Empilha header e main */
-    justify-content: center; 
-    align-items: center;     
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Garante que o header comece no topo */
 }
 
-header {
-    text-align: center;
-    color: white;
-    text-transform: uppercase;
-    background-color: #32C753; /* Verde Principal do Botão/Banner */
-    font-size: 1.8rem;
-    width: 80%;
-    max-width: 500px;
-    padding: 20px;
-    border-radius: 30px 30px 0 0; 
+/* =========================================
+   HEADER PADRÃO MODERNIZADO
+   ========================================= */
+header.padrao {
+    background-color: #213F95; /* French Blue */
+    color: #FFFFFF;
+    width: 100%;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12);
 }
 
+header.padrao .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+header.padrao h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+header.padrao h1 span {
+    font-weight: 400;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+header.padrao p {
+    color: #F6E3E5; /* Lavender Blush sutil */
+    font-size: 0.85rem;
+    margin-top: 2px;
+}
+
+header.padrao .nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+header.padrao .nav-item {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+header.padrao .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #F6E3E5;
+}
+
+/* =========================================
+   CARD PRINCIPAL (LOGIN)
+   ========================================= */
 .principal {
-    width: 80%;
-    max-width: 500px;
-    background-color: #FFFFFF; /* Branco do Card de Produto */
-    padding: 30px;
-    border-radius: 0 0 30px 30px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Sombra suavizada para fundos claros */
-    color: #1E5B29; /* Verde Escuro para os textos principais */
+    width: 90%;
+    max-width: 400px;
+    background-color: #FFFFFF;
+    padding: 40px 30px;
+    border-radius: 16px; /* Bordas suaves e modernas */
+    box-shadow: 0 10px 30px rgba(33, 63, 149, 0.06);
+    margin: auto 0; /* Centraliza o card verticalmente no espaço que sobra */
+}
+
+.principal h2 {
+    color: #213F95;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 900;
+    font-size: 1.6rem;
 }
 
 form {
-    display: grid;
-    gap: 15px;
-    width: 100%; /* Garante que o form use o espaço interno */
-    max-height: 300px;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: -5px;
-    text-align: left;
+    font-weight: 700;
+    color: #213F95;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-input, select {
-    padding: 10px;
+input {
+    padding: 12px 16px;
     border-radius: 8px;
-    border: 1px solid #ccc;
-    background-color: #FFFFFF;
-    color: #000000; /* Texto do input em preto para legibilidade */
+    border: 1px solid #D9D9D9;
+    background-color: #FAFAFA;
+    color: #333333;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-input:focus{
-    border-collapse: collapse;
+input:focus {
+    outline: none;
+    border-color: #213F95;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(33, 63, 149, 0.15);
+}
+
+/* =========================================
+   BOTÕES COM HIERARQUIA VISUAL
+   ========================================= */
+.botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .btn {
-    margin-top: 10px;
-    background-color: #E36D3B; /* Laranja/Coral de destaque do preço */
-    color: #ffffff; /* Texto branco para dar contraste com o laranja */
-    border: none;
-    padding: 1rem;
+    padding: 14px;
     border-radius: 8px;
-    font-weight: 900;
+    font-weight: 700;
+    font-size: 0.95rem;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    border: none;
 }
 
-.btn:hover { 
-    background: #32C753; /* Muda para o Verde Principal ao passar o mouse */
-    color: white;
-    transform: translateY(-3px); 
+/* Botão Entrar (Destaque Maior) */
+.btn-primary {
+    background-color: #213F95;
+    color: #FFFFFF;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.btn-primary:hover {
+    background-color: #172d6b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 63, 149, 0.2);
 }
 
-input:focus, select:focus {
-    outline: none;
-    border: 1px solid #32C753; /* Foco com o Verde Principal */
-    box-shadow: 0 0 5px rgba(50, 199, 83, 0.5);
+/* Botão Cadastrar (Mais discreto e elegante) */
+.btn-secundario {
+    background-color: #F6E3E5; /* Lavender Blush */
+    color: #213F95;
 }
 
-/* 1. Define a largura da barra */
-form::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* 2. O fundo da barra (pista) */
-form::-webkit-scrollbar-track {
-    background: #F7F3E8;      /* Fundo da barra com o Bege do site */
-    border-radius: 10px;
-    margin: 5px;               /* Espaçamento nas pontas */
-}
-
-/* 3. O pino da barra (scroll) */
-form::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
-
-form::-webkit-scrollbar-thumb:hover {
-    background: #32C753; /* Rola com o indicador verde no hover */
-    cursor: pointer;
+.btn-secundario:hover {
+    background-color: #ebd2d5;
+    transform: translateY(-2px);
 }
