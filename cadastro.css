@@ -1,6 +1,7 @@
-/* Importação da Fonte Nunito */
+/* Importando a fonte Nunito direto dos servidores do Google pra deixar a tipografia clean */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
 
+/* Reset global clássico: zera margens, paddings e força o box-sizing a incluir bordas no cálculo de tamanho */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,27 +9,27 @@
     font-family: 'Nunito', sans-serif;
 }
 
+/* Estilo do corpo da página com um degradê diagonal bem sutil e elegante */
 body {
     background: linear-gradient(135deg, #F6E3E5 0%, #FFFFFF 100%);
-    background-attachment: fixed;
-    min-height: 100vh;
+    background-attachment: fixed; /* O degradê não se mexe se a página tiver rolagem */
+    min-height: 100vh; /* Garante que o fundo ocupe sempre 100% da altura do monitor */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* =========================================
-   HEADER PADRÃO (Identidade unificada)
-   ========================================= */
+/* --- HEADER PRINCIPAL --- */
 header.padrao {
-    background-color: #213F95; /* French Blue */
+    background-color: #213F95; /* Azul escuro principal da marca */
     color: #FFFFFF;
     width: 100%;
     padding: 1.2rem 2rem;
-    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12);
+    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12); /* Sombra suave para flutuar sobre o fundo */
 }
 
+/* Container do header pra limitar a largura máxima em telas ultra-wide e centralizar */
 header.padrao .header-container {
     display: flex;
     justify-content: space-between;
@@ -38,34 +39,39 @@ header.padrao .header-container {
     width: 100%;
 }
 
+/* Estilização do título principal (Verde e Grão) */
 header.padrao h1 {
     font-size: 1.5rem;
     font-weight: 900;
 }
 
+/* Deixa a palavra "Empório" mais fina, criando um contraste visual legal com o resto do título */
 header.padrao h1 span {
     font-weight: 400;
     font-size: 1.2rem;
     opacity: 0.8;
 }
 
+/* Pequeno texto de apoio embaixo do título */
 header.padrao p {
-    color: #F6E3E5; /* Lavender Blush */
+    color: #F6E3E5; 
     font-size: 0.85rem;
     margin-top: 2px;
 }
 
+/* Distanciamento entre os botões de Login e Carrinho */
 header.padrao .nav-links {
     display: flex;
     gap: 25px;
 }
 
+/* Links do menu superior transformados em flex pra alinhar perfeitamente o texto e o ícone */
 header.padrao .nav-item {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Suaviza a troca de cores no hover */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -73,24 +79,24 @@ header.padrao .nav-item {
     border-radius: 6px;
 }
 
+/* Feedback visual quando o mouse passa em cima dos itens do menu */
 header.padrao .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Cria um leve fundo branco translúcido */
     color: #F6E3E5;
 }
 
-/* =========================================
-   CARD DE CADASTRO
-   ========================================= */
+/* --- CARD DE CADASTRO --- */
 .principal {
     width: 90%;
-    max-width: 450px;
+    max-width: 450px; /* Não deixa o card esticar demais em telas grandes */
     background-color: #FFFFFF;
     padding: 35px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(33, 63, 149, 0.06);
-    margin: 40px 0; /* Margem equilibrada para não colar no header ou rodapé */
+    border-radius: 16px; /* Bordas bem arredondadas, tendência moderna de UI */
+    box-shadow: 0 10px 30px rgba(33, 63, 149, 0.06); /* Sombra bem difusa pra dar profundidade */
+    margin: 40px 0; /* Margem pra desgrudar o card do header e do fundo da página */
 }
 
+/* Título interno do card de cadastro */
 .principal h2 {
     color: #213F95;
     text-align: center;
@@ -99,6 +105,7 @@ header.padrao .nav-item:hover {
     margin-bottom: 4px;
 }
 
+/* Subtítulo do card explicando o que fazer */
 .subtitulo-card {
     text-align: center;
     color: #666666;
@@ -106,18 +113,21 @@ header.padrao .nav-item:hover {
     margin-bottom: 25px;
 }
 
+/* Faz os campos do formulário ficarem um embaixo do outro com espaçamento fixo */
 form {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
+/* Empilha o Label em cima do Input correspondente */
 .input-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
+/* Textos dos labels: pequenos, em negrito e com letras maiúsculas espaçadas */
 label {
     font-weight: 700;
     color: #213F95;
@@ -126,6 +136,7 @@ label {
     letter-spacing: 0.5px;
 }
 
+/* Estilização padrão das caixas onde o usuário digita */
 input {
     padding: 12px 16px;
     border-radius: 8px;
@@ -133,19 +144,18 @@ input {
     background-color: #FAFAFA;
     color: #333333;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Transição suave pro efeito de focus */
 }
 
+/* O que acontece quando o usuário clica na caixa de texto pra digitar */
 input:focus {
-    outline: none;
-    border-color: #213F95;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 0 4px rgba(33, 63, 149, 0.15);
+    outline: none; /* Remove aquela borda preta feia padrão dos navegadores */
+    border-color: #213F95; /* Pinta a borda com o azul da marca */
+    background-color: #FFFFFF; /* Clareia o fundo do input */
+    box-shadow: 0 0 0 4px rgba(33, 63, 149, 0.15); /* Cria um efeito de "neon/brilho" azul em volta */
 }
 
-/* =========================================
-   AÇÕES E BOTÕES
-   ========================================= */
+/* --- BOTÕES E AÇÕES --- */
 .botoes-container {
     display: flex;
     flex-direction: column;
@@ -154,6 +164,7 @@ input:focus {
     align-items: center;
 }
 
+/* Base de estilo pra qualquer botão que surgir no sistema */
 .btn {
     width: 100%;
     padding: 14px;
@@ -168,17 +179,20 @@ input:focus {
     border: none;
 }
 
+/* Cor específica do botão primário (Concluir Registro) */
 .btn-primary {
     background-color: #213F95;
     color: #FFFFFF;
 }
 
+/* Efeito de "levitar" o botão e escurecer o azul quando o mouse passa por cima */
 .btn-primary:hover {
     background-color: #172d6b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(33, 63, 149, 0.2);
+    transform: translateY(-2px); /* Sobe o botão em 2 pixels */
+    box-shadow: 0 4px 12px rgba(33, 63, 149, 0.2); /* Deixa a sombra dele mais forte */
 }
 
+/* Link de retorno para a tela de login */
 .link-retorno {
     color: #213F95;
     text-decoration: none;
@@ -187,6 +201,7 @@ input:focus {
     transition: 0.2s;
 }
 
+/* Coloca o sublinhado clássico de link apenas quando o mouse estiver em cima */
 .link-retorno:hover {
     text-decoration: underline;
     opacity: 0.8;
