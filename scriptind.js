@@ -36,4 +36,3 @@ carrosseis.forEach((carrossel) => {
         }
     });
 });
-  
