@@ -17,6 +17,9 @@ body {
     font-family: 'Nunito', sans-serif;
     background-color: #F6E3E5; 
     margin: 1.25rem; 
+    
+    max-width: 100vw; 
+    overflow-x: hidden; 
 }
 
 /* =========================================
@@ -100,33 +103,25 @@ header.padrao .nav-item:hover {
 }
 
 .carrossel-pista-container {
-    overflow-x: auto; /* Habilita rolagem horizontal */
+    overflow-x: auto; 
     overflow-y: hidden;
     width: 100%;
-    padding: 10px 5px 20px 5px; /* Padding bottom maior pra dar espaço pra scrollbar */
-    
-    /* Efeito magnético de scroll (trava no elemento) */
+    padding: 10px 5px 20px 5px; 
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
 }
 
-/* Estilização da barra de rolagem (Chrome, Safari, Edge) */
-.carrossel-pista-container::-webkit-scrollbar {
-    height: 8px; 
-}
-.carrossel-pista-container::-webkit-scrollbar-track {
-    background: #F6E3E5; 
-    border-radius: 10px;
-}
-.carrossel-pista-container::-webkit-scrollbar-thumb {
-    background: #213F95; 
-    border-radius: 10px;
-}
+.carrossel-pista-container::-webkit-scrollbar { height: 8px; }
+.carrossel-pista-container::-webkit-scrollbar-track { background: #F6E3E5; border-radius: 10px; }
+.carrossel-pista-container::-webkit-scrollbar-thumb { background: #213F95; border-radius: 10px; }
 
 .carrossel-pista {
     display: flex;
     gap: 20px;
     width: max-content;
+    
+    /* Faz todos os cards terem a mesma altura máxima na pista */
+    align-items: stretch; 
 }
 
 /* =========================================
@@ -135,7 +130,7 @@ header.padrao .nav-item:hover {
 
 .card-produto {
     flex: 0 0 250px; 
-    scroll-snap-align: start; /* Diz onde o scroll deve "grudar" ao parar */
+    scroll-snap-align: start; 
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1);
@@ -155,6 +150,11 @@ header.padrao .nav-item:hover {
 .info {
     padding: 15px;
     text-align: center;
+    
+    /* Configuração Flex para alinhar o botão no fundo */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz a div info esticar para preencher o cartão */
 }
 
 .preco {
@@ -182,6 +182,9 @@ header.padrao .nav-item:hover {
     width: 100%;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* A MÁGICA: Empurra o botão pro limite inferior do card */
+    margin-top: auto; 
 }
 
 .btn-zap:hover { 
@@ -201,7 +204,6 @@ header.padrao .nav-item:hover {
    ========================================= */
 
 @media (max-width: 768px) {
-    /* Reseta margens pra colar na tela */
     body { margin: 0; }
 
     header.padrao {
@@ -238,15 +240,9 @@ header.padrao .nav-item:hover {
         text-align: center; 
     }
 
-    /* Ajuste fino da barra de rolagem no celular (deixa mais fina) */
-    .carrossel-pista-container::-webkit-scrollbar {
-        height: 5px; 
-    }
+    .carrossel-pista-container::-webkit-scrollbar { height: 5px; }
 
-    /* Redução dos cards para caber ~2 por tela e induzir o scroll */
-    .card-produto {
-        flex: 0 0 150px; 
-    }
+    .card-produto { flex: 0 0 150px; }
     
     .carrossel-pista { gap: 10px; } 
 
