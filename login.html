@@ -4,46 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Verde e Grão</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link class="html-embed" rel="stylesheet" href="login.css">
+    <link class="html-embed" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     
     <header class="padrao">
         <div class="header-container">
             <div class="logo-info">
-                <h1>Verde e Grão - Empório</h1>
+                <h1>Verde e Grão <span>Empório</span></h1>
                 <p>Ofertas frescas do dia &#127813;</p>
             </div>
             
-            <div class="nav-links">
-                <nav>
-                    <a href="login.html" class="login-link">
-                        Login <i class="fa-solid fa-user"></i>
-                    </a>
-                </nav>
-                <nav>
-                    <a href="carrinho.html" class="carrinho-link">
-                        Carrinho <i class="fa-solid fa-cart-shopping"></i> 
-                    </a>
-                </nav>
-            </div>
+            <nav class="nav-links">
+                <a href="login.html" class="nav-item">
+                    Login <i class="fa-solid fa-user"></i>
+                </a>
+                <a href="carrinho.html" class="nav-item">
+                    Carrinho <i class="fa-solid fa-cart-shopping"></i> 
+                </a>
+            </nav>
         </div>
     </header>
 
     <main class="principal">
+        <h2>Acessar Conta</h2>
+        <p class="subtitulo-card">Bem-vindo de volta! Faça seu login</p>
+
         <form>
-            <label for="email">E-mail</label>
-            <input type="email" id="email" required>
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+            </div>
          
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" required>
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Sua senha secreta" required>
+            </div>
                         
             <div class="botoes-container">
-                <button type="submit" class="btn">Entrar</button>
+                <button type="submit" class="btn btn-primary">Entrar</button>
                 <a href="cadastro.html" class="btn btn-secundario">Fazer Cadastro</a>
             </div>
         </form>
-    </main>    
+    </main>     
+
+    <script src="login.js"></script>
 </body>
 </html>
