@@ -1,0 +1,249 @@
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    background-color: #F6E3E5;
+}
+
+header.padrao {
+    background-color: #213F95;
+    color: white;
+    width: 100%;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(33, 63, 149, 0.1);
+    margin-bottom: 60px; 
+}
+
+header.padrao .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+header.padrao .logo-info {
+    text-align: left;
+}
+
+header.padrao h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+header.padrao p {
+    color: #F6E3E5;
+    font-size: 0.85rem;
+    margin-top: 2px;
+}
+
+header.padrao .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+header.padrao .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+header.padrao .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.carrinho-principal {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    width: calc(100% - 2.5rem);
+    max-width: 1200px;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+}
+
+.carrinho-principal h2 {
+    color: #213F95;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #213F95;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.carrinho-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.lista-itens {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #E3D9DB;
+    gap: 20px;
+}
+
+.item-detalhes {
+    flex: 1;
+}
+
+.item-detalhes h3 {
+    color: #213F95;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.item-detalhes p {
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+.item-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #FAFAFA;
+    border: 1px solid #D9D9D9;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.btn-qtd-mais, .btn-qtd-menos {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #213F95;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.qtd-numero {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+    min-width: 20px;
+    text-align: center;
+}
+
+.item-preco {
+    color: #213F95;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 90px;
+    text-align: right;
+}
+
+.btn-remover {
+    background: none;
+    border: none;
+    color: #E74C3C;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s;
+}
+
+.btn-remover:hover {
+    transform: scale(1.15);
+}
+
+.resumo-carrinho {
+    background-color: #FAFAFA;
+    border: 1px solid #E3D9DB;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 450px;
+    width: 100%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    color: #666666;
+    font-size: 1rem;
+}
+
+.resumo-linha.total {
+    color: #213F95;
+    font-size: 1.3rem;
+    font-weight: 900;
+    border-top: 1px dashed #E3D9DB;
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+.btn-finalizar {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-finalizar:hover {
+    background-color: #128C7E;
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .item-carrinho {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .item-detalhes {
+        min-width: 150px;
+    }
+    .item-preco {
+        flex-grow: 1;
+    }
+    .resumo-carrinho {
+        max-width: 100%;
+    }
+}
