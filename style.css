@@ -16,7 +16,7 @@ body {
     align-items: center;
     font-family: 'Nunito', sans-serif;
     background-color: #F6E3E5; 
-    margin: 1.25rem; 
+    margin: 0;        
     
     max-width: 100vw; 
     overflow-x: hidden; 
@@ -32,8 +32,6 @@ header.padrao {
     width: 100%;
     padding: 1.2rem 2rem;
     box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12); 
-    margin-bottom: 60px;
-    border-radius: 10px; 
 }
 
 header.padrao .header-container {
@@ -208,7 +206,6 @@ header.padrao .nav-item:hover {
 
     header.padrao {
         padding: 1rem;
-        margin-bottom: 20px; 
         border-radius: 0; 
     }
 
