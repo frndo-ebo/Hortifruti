@@ -1,7 +1,11 @@
-/* Puxando a fonte Nunito do Google Fonts para manter a consistência com o resto do sistema */
+/* =========================================
+   ESTILOS EXCLUSIVOS DA TELA DE LOGIN
+   ========================================= */
+
+/* Importação da fonte Nunito */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght=400;600;700;900&display=swap');
 
-/* Reset básico do navegador */
+/* Reset básico */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,71 +13,54 @@
     font-family: 'Nunito', sans-serif;
 }
 
-/* Base da tela: força ocupar a altura inteira do monitor e monta o background em degradê */
+/* Fundo em degradê elegante, fixo na tela */
 body {
     background: linear-gradient(135deg, #F6E3E5 0%, #FFFFFF 100%);
-    background-attachment: fixed; /* Trava o fundo caso a tela precise de scroll */
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Mantém o cabeçalho colado no teto da página */
+    justify-content: flex-start;
 }
 
 /* =========================================
-   HEADER PADRÃO MODERNIZADO
+   CABEÇALHO (Igual ao do CSS 1)
    ========================================= */
+
 header.padrao {
-    background-color: #213F95; /* Azul Escuro (Identidade da Marca) */
+    background-color: #213F95;
     color: #FFFFFF;
     width: 100%;
     padding: 1.2rem 2rem;
-    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12); /* Sombra leve para destacar do fundo */
+    box-shadow: 0 4px 20px rgba(33, 63, 149, 0.12);
 }
 
-/* Alinha a logo à esquerda e os links à direita com espaçamento automático entre eles */
 header.padrao .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
-    margin: 0 auto; /* Centraliza o bloco do container no meio de monitores muito grandes */
+    margin: 0 auto;
     width: 100%;
 }
 
-/* Título principal do Empório */
-header.padrao h1 {
-    font-size: 1.5rem;
-    font-weight: 900;
-}
+header.padrao h1 { font-size: 1.5rem; font-weight: 900; }
+header.padrao h1 span { font-weight: 400; font-size: 1.2rem; opacity: 0.8; }
+header.padrao p { color: #F6E3E5; font-size: 0.85rem; margin-top: 2px; }
 
-/* Deixa a palavra "Empório" mais leve visualmente para criar contraste no design */
-header.padrao h1 span {
-    font-weight: 400;
-    font-size: 1.2rem;
-    opacity: 0.8;
-}
-
-/* Slogan do estabelecimento logo abaixo do nome */
-header.padrao p {
-    color: #F6E3E5; /* Rosa claro/lavanda bem sutil */
-    font-size: 0.85rem;
-    margin-top: 2px;
-}
-
-/* Junta os links do menu e coloca um espaçamento de 25px entre eles */
+/* Grupo de navegação e botões do menu */
 header.padrao .nav-links {
     display: flex;
     gap: 25px;
 }
 
-/* Estilização dos links do menu. Flex ajuda a alinhar o texto perfeitamente com os ícones */
 header.padrao .nav-item {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.95rem;
-    transition: all 0.3s ease; /* Suaviza as animações de cor e hover */
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -81,58 +68,64 @@ header.padrao .nav-item {
     border-radius: 6px;
 }
 
-/* Efeito visual de foco/passagem do mouse nos botões superiores */
 header.padrao .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1); /* Cria uma caixinha branca bem transparente */
+    background: rgba(255, 255, 255, 0.1);
     color: #F6E3E5;
 }
 
 /* =========================================
-   CARD PRINCIPAL (LOGIN)
+   CARD DE LOGIN E FORMULÁRIO
    ========================================= */
+
+/* Caixa branca centralizada do login */
 .principal {
     width: 90%;
-    max-width: 400px; /* Evita que o card estique horizontalmente em telas de desktop */
+    max-width: 400px; /* Limita a largura em telas grandes */
     background-color: #FFFFFF;
     padding: 40px 30px;
-    border-radius: 16px; /* Cantos arredondados na medida certa */
-    box-shadow: 0 10px 30px rgba(33, 63, 149, 0.06); /* Sombra elegante para dar sensação de profundidade */
-    margin: auto 0; /* Feitiço do flexbox: empurra e distribui o espaço em cima e embaixo, centralizando o card */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(33, 63, 149, 0.06); /* Sombra elegante */
+    margin: auto 0; /* Centraliza verticalmente usando o espaço flex */
 }
 
-/* Título principal interno do card */
+/* Textos e títulos dentro do card */
 .principal h2 {
     color: #213F95;
     text-align: center;
-    margin-bottom: 4px; /* Ajustado para conversar bem com o subtítulo */
+    margin-bottom: 4px;
     font-weight: 900;
     font-size: 1.6rem;
 }
 
-/* Faz com que os blocos de input fiquem todos listados verticalmente */
+.subtitulo-card {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Layout dos inputs em coluna */
 form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Organiza o label exatamente acima do seu respectivo input */
 .input-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-/* Estilo padrão de acessibilidade e leitura para as etiquetas do formulário */
+/* Etiquetas e Caixas de Texto */
 label {
     font-weight: 700;
     color: #213F95;
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px; /* Espaçamento leve entre as letras maiúsculas */
+    letter-spacing: 0.5px;
 }
 
-/* Customização fina das caixas de texto */
 input {
     padding: 12px 16px;
     border-radius: 8px;
@@ -143,17 +136,18 @@ input {
     transition: all 0.3s ease;
 }
 
-/* Efeito luminoso e troca de cores quando o usuário clica na caixa para digitar */
+/* Efeito azul quando o usuário digita na caixa */
 input:focus {
-    outline: none; /* Desliga aquela borda preta horrorosa nativa do navegador */
+    outline: none;
     border-color: #213F95;
     background-color: #FFFFFF;
-    box-shadow: 0 0 0 4px rgba(33, 63, 149, 0.15); /* "Aura" azul clara ao redor do campo */
+    box-shadow: 0 0 0 4px rgba(33, 63, 149, 0.15);
 }
 
 /* =========================================
-   BOTÕES COM HIERARQUIA VISUAL
+   BOTÕES DE AÇÃO (ENTRAR / CADASTRAR)
    ========================================= */
+
 .botoes-container {
     display: flex;
     flex-direction: column;
@@ -161,7 +155,7 @@ input:focus {
     margin-top: 10px;
 }
 
-/* Reset estrutural para os botões do sistema (funciona tanto para a tag <button> quanto para <a>) */
+/* Reset base para todos os botões do formulário */
 .btn {
     padding: 14px;
     border-radius: 8px;
@@ -174,29 +168,28 @@ input:focus {
     text-align: center;
     text-decoration: none;
     border: none;
-    width: 100%; /* Força os botões a ocuparem toda a largura interna do card */
+    width: 100%;
 }
 
-/* Botão Entrar: Deve reter a maior atenção do usuário (Ação Primária) */
+/* Botão primário (Chama a atenção total) */
 .btn-primary {
     background-color: #213F95;
     color: #FFFFFF;
 }
 
-/* Animação de elevação e sombra pesada ao passar o mouse */
 .btn-primary:hover {
     background-color: #172d6b;
-    transform: translateY(-2px); /* Efeito físico de empurrão para cima */
+    transform: translateY(-2px); /* Efeito de elevação */
     box-shadow: 0 4px 12px rgba(33, 63, 149, 0.2);
 }
 
-/* Botão Cadastrar: Ação secundária, cores mais calmas para não brigar com o botão de entrar */
+/* Botão secundário (Ação alternativa mais discreta) */
 .btn-secundario {
-    background-color: #F6E3E5; /* Tom sutil da paleta */
+    background-color: #F6E3E5;
     color: #213F95;
 }
 
 .btn-secundario:hover {
-    background-color: #ebd2d5; /* Escurece de leve o fundo rosa no hover */
+    background-color: #ebd2d5;
     transform: translateY(-2px);
 }
