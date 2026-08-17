@@ -1,39 +1,136 @@
-// Espera todo o HTML da página carregar para o script não tentar pegar elementos que ainda não existem
-document.addEventListener("DOMContentLoaded", () => {
-  // Seleciona o formulário de cadastro da tela
-  const form = document.querySelector("form");
+// script.js - Renderização dinâmica e barra de busca
+import { produtos } from './produtos.js';
 
-  // Ouve quando o usuário tenta enviar o formulário (clicando no botão ou dando Enter)
-  form.addEventListener("submit", (event) => {
-    // Para o envio padrão do HTML que iria dar um refresh na página inteira
-    event.preventDefault();
+// Configuração do WhatsApp (copie o número correto)
+const WHATSAPP_NUMERO = '5511982176393';
+const WHATSAPP_ICON = 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/94/ab/c094ab41-a44a-4da8-737f-7aad8d97b8b6/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-0-85-220.png/256x256bb.png';
 
-    // Captura os valores de cada campo e o .trim() remove espaços extras bobos no início/fim
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const senha = document.getElementById("senha").value;
+// Referências DOM
+const inputBusca = document.querySelector('#busca-input');
+const containerFrutas = document.querySelector('#container-frutas');
+const containerLegumes = document.querySelector('#container-legumes');
+const containerTemperos = document.querySelector('#container-temperos');
 
-    // Validação básica de segurança para a senha não ser curta demais
-    if (senha.length < 6) {
-      alert("A senha precisa conter no mínimo 6 caracteres!");
-      return; // Mata a execução da função bem aqui para não avançar no cadastro
-    }
+// Renderizar um produto como card
+function criarCardProduto(produto) {
+  const mensagemWhatsApp = `Olá! Gostaria de comprar esse produto: ${produto.nome}`;
+  const linkWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemWhatsApp)}`;
 
-    // Monta o objeto com os dados limpos do novo usuário
-    const dadosUsuario = {
-      nome: nome,
-      email: email,
-      telefone: telefone,
-      senha: senha
-    };
+  const card = document.createElement('div');
+  card.className = 'card-produto';
+  card.innerHTML = `
+    <img 
+      src="${produto.imagem}" 
+      alt="${produto.nome}" 
+      loading="lazy" 
+    />
+    <div class="info">
+      <h3>${produto.nome}</h3>
+      <p class="preco">${produto.preco}</p>
+      <a href="${linkWhatsApp}" class="btn-zap" target="_blank">
+        <img 
+          src="${WHATSAPP_ICON}" 
+          alt="WhatsApp" 
+          class="capa-zap" 
+        />
+        <span>Pedir no WhatsApp</span>
+      </a>
+    </div>
+  `;
+  
+  return card;
+}
 
-    // Converte o objeto em texto (JSON) e guarda no banco local do navegador do cliente
-    localStorage.setItem("usuarioCadastrado", JSON.stringify(dadosUsuario));
+// Renderizar todos os produtos por categoria
+function renderizarTodosProdutos() {
+  // Limpar containers
+  containerFrutas.innerHTML = '';
+  containerLegumes.innerHTML = '';
+  containerTemperos.innerHTML = '';
 
-    // Alerta simpático avisando que deu tudo certo
-    alert(`Sucesso! Os dados de ${nome} foram guardados localmente no seu navegador.`);
-    // Redireciona o usuário para a página principal do site 
-    window.location.href = "index.html";
+  // Separar por categoria e renderizar
+  const frutas = produtos.filter(p => p.categoria === 'frutas');
+  const legumes = produtos.filter(p => p.categoria === 'legumes');
+  const temperos = produtos.filter(p => p.categoria === 'temperos');
+
+  frutas.forEach(produto => {
+    containerFrutas.appendChild(criarCardProduto(produto));
   });
+
+  legumes.forEach(produto => {
+    containerLegumes.appendChild(criarCardProduto(produto));
+  });
+
+  temperos.forEach(produto => {
+    containerTemperos.appendChild(criarCardProduto(produto));
+  });
+
+  // Mostrar todas as seções
+  mostrarSecoes();
+}
+
+// Filtrar por busca
+function filtrarProdutos(termoBusca) {
+  const termo = termoBusca.toLowerCase().trim();
+
+  if (termo === '') {
+    renderizarTodosProdutos();
+    return;
+  }
+
+  const frutasFiltradas = produtos.filter(
+    p => p.categoria === 'frutas' && p.nome.toLowerCase().includes(termo)
+  );
+  const legumesFiltrados = produtos.filter(
+    p => p.categoria === 'legumes' && p.nome.toLowerCase().includes(termo)
+  );
+  const temperosFiltrados = produtos.filter(
+    p => p.categoria === 'temperos' && p.nome.toLowerCase().includes(termo)
+  );
+
+  // Limpar containers
+  containerFrutas.innerHTML = '';
+  containerLegumes.innerHTML = '';
+  containerTemperos.innerHTML = '';
+
+  // Renderizar resultados filtrados
+  frutasFiltradas.forEach(produto => {
+    containerFrutas.appendChild(criarCardProduto(produto));
+  });
+
+  legumesFiltrados.forEach(produto => {
+    containerLegumes.appendChild(criarCardProduto(produto));
+  });
+
+  temperosFiltrados.forEach(produto => {
+    containerTemperos.appendChild(criarCardProduto(produto));
+  });
+
+  // Mostrar/esconder seções conforme necessário
+  mostrarSecoes();
+}
+
+// Mostrar seções que têm produtos, esconder vazias
+function mostrarSecoes() {
+  const secaoFrutas = containerFrutas.closest('section');
+  const secaoLegumes = containerLegumes.closest('section');
+  const secaoTemperos = containerTemperos.closest('section');
+
+  secaoFrutas.style.display = containerFrutas.children.length > 0 ? 'block' : 'none';
+  secaoLegumes.style.display = containerLegumes.children.length > 0 ? 'block' : 'none';
+  secaoTemperos.style.display = containerTemperos.children.length > 0 ? 'block' : 'none';
+}
+
+// Event listener para barra de busca (com debounce para performance)
+let timerBusca;
+inputBusca?.addEventListener('input', (e) => {
+  clearTimeout(timerBusca);
+  timerBusca = setTimeout(() => {
+    filtrarProdutos(e.target.value);
+  }, 300);
+});
+
+// Renderizar tudo ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+  renderizarTodosProdutos();
 });
