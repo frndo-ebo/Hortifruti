@@ -15,6 +15,7 @@ export const produtos = [
     imagem: 'imagens_frutas/banana.jpg',
     categoria: 'frutas'
   },
+  
   {
     id: 3,
     nome: 'Maçã',
