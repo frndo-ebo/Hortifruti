@@ -1,4 +1,3 @@
-
 // produtos.js - Banco de dados de produtos Verde e Grão
 export const produtos = [
   // ========== FRUTAS (15) ==========
@@ -48,7 +47,7 @@ export const produtos = [
     id: 7,
     nome: 'Maracujá',
     preco: 'R$4,50uni',
-    imagem: 'imagens_frutas/maracuja.jpg',
+    imagem: 'imagens_frutas/maracao.jpg',
     categoria: 'frutas'
   },
   {
