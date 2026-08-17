@@ -1,9 +1,5 @@
-// script.js - Renderização dinâmica e barra de busca
+// script.js - VERSÃO ATUALIZADA com carrinho
 import { produtos } from './produtos.js';
-
-// Configuração do WhatsApp (copie o número correto)
-const WHATSAPP_NUMERO = '5511982176393';
-const WHATSAPP_ICON = 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/94/ab/c094ab41-a44a-4da8-737f-7aad8d97b8b6/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-0-85-220.png/256x256bb.png';
 
 // Referências DOM
 const inputBusca = document.querySelector('#busca-input');
@@ -11,11 +7,8 @@ const containerFrutas = document.querySelector('#container-frutas');
 const containerLegumes = document.querySelector('#container-legumes');
 const containerTemperos = document.querySelector('#container-temperos');
 
-// Renderizar um produto como card
+// Criar card do produto COM CARRINHO
 function criarCardProduto(produto) {
-  const mensagemWhatsApp = `Olá! Gostaria de comprar esse produto: ${produto.nome}`;
-  const linkWhatsApp = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagemWhatsApp)}`;
-
   const card = document.createElement('div');
   card.className = 'card-produto';
   card.innerHTML = `
@@ -27,28 +20,23 @@ function criarCardProduto(produto) {
     <div class="info">
       <h3>${produto.nome}</h3>
       <p class="preco">${produto.preco}</p>
-      <a href="${linkWhatsApp}" class="btn-zap" target="_blank">
-        <img 
-          src="${WHATSAPP_ICON}" 
-          alt="WhatsApp" 
-          class="capa-zap" 
-        />
-        <span>Pedir no WhatsApp</span>
-      </a>
+      <div class="botoes-card">
+        <button class="btn-carrinho" data-id="${produto.id}" data-nome="${produto.nome}">
+          <i class="fas fa-shopping-cart"></i> Carrinho
+        </button>
+      </div>
     </div>
   `;
   
   return card;
 }
 
-// Renderizar todos os produtos por categoria
+// Renderizar todos os produtos
 function renderizarTodosProdutos() {
-  // Limpar containers
   containerFrutas.innerHTML = '';
   containerLegumes.innerHTML = '';
   containerTemperos.innerHTML = '';
 
-  // Separar por categoria e renderizar
   const frutas = produtos.filter(p => p.categoria === 'frutas');
   const legumes = produtos.filter(p => p.categoria === 'legumes');
   const temperos = produtos.filter(p => p.categoria === 'temperos');
@@ -65,11 +53,11 @@ function renderizarTodosProdutos() {
     containerTemperos.appendChild(criarCardProduto(produto));
   });
 
-  // Mostrar todas as seções
   mostrarSecoes();
+  adicionarEventCarrinho();
 }
 
-// Filtrar por busca
+// Filtrar produtos
 function filtrarProdutos(termoBusca) {
   const termo = termoBusca.toLowerCase().trim();
 
@@ -88,12 +76,10 @@ function filtrarProdutos(termoBusca) {
     p => p.categoria === 'temperos' && p.nome.toLowerCase().includes(termo)
   );
 
-  // Limpar containers
   containerFrutas.innerHTML = '';
   containerLegumes.innerHTML = '';
   containerTemperos.innerHTML = '';
 
-  // Renderizar resultados filtrados
   frutasFiltradas.forEach(produto => {
     containerFrutas.appendChild(criarCardProduto(produto));
   });
@@ -106,11 +92,11 @@ function filtrarProdutos(termoBusca) {
     containerTemperos.appendChild(criarCardProduto(produto));
   });
 
-  // Mostrar/esconder seções conforme necessário
   mostrarSecoes();
+  adicionarEventCarrinho();
 }
 
-// Mostrar seções que têm produtos, esconder vazias
+// Mostrar seções com conteúdo
 function mostrarSecoes() {
   const secaoFrutas = containerFrutas.closest('section');
   const secaoLegumes = containerLegumes.closest('section');
@@ -121,7 +107,35 @@ function mostrarSecoes() {
   secaoTemperos.style.display = containerTemperos.children.length > 0 ? 'block' : 'none';
 }
 
-// Event listener para barra de busca (com debounce para performance)
+// Adicionar eventos aos botões de carrinho
+function adicionarEventCarrinho() {
+  document.querySelectorAll('.btn-carrinho').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idProduto = parseInt(btn.dataset.id);
+      const nomeProduto = btn.dataset.nome;
+
+      // Encontrar o produto na lista
+      const produto = produtos.find(p => p.id === idProduto);
+
+      if (produto) {
+        carrinho.adicionarProduto(produto);
+        
+        // Feedback visual
+        btn.textContent = '✓ Adicionado!';
+        btn.style.backgroundColor = '#27ae60';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Carrinho';
+          btn.style.backgroundColor = '';
+          btn.disabled = false;
+        }, 1500);
+      }
+    });
+  });
+}
+
+// Event listener de busca
 let timerBusca;
 inputBusca?.addEventListener('input', (e) => {
   clearTimeout(timerBusca);
@@ -130,7 +144,7 @@ inputBusca?.addEventListener('input', (e) => {
   }, 300);
 });
 
-// Renderizar tudo ao carregar a página
+// Renderizar ao carregar
 document.addEventListener('DOMContentLoaded', () => {
   renderizarTodosProdutos();
 });
